@@ -1,5 +1,5 @@
 const request = new XMLHttpRequest();
-request.open("GET", "../../../pets.json");
+request.open("GET", "/pets.json");
 
 let headerPets = document.querySelector("#pets-header");
 let buttonBurgerPets = document.querySelector("#pets-header__button-burger");
@@ -38,7 +38,7 @@ buttonBurgerPets.addEventListener("click", function () {
 let pets = [];
 let fullPetsList = [];
 
-fetch("../../../pets.json")
+fetch("/pets.json")
   .then((res) => res.json())
   .then((list) => {
     pets = list;
