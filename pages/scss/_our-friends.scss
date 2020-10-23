@@ -1,0 +1,180 @@
+.our-friends {
+  background: #f6f6f6;
+  padding: 8.2rem 0 10rem 0;
+
+  @media only screen and (max-width: 400px) {
+    padding: 4.2rem 0 4.1rem 0;
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 40rem;
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.5rem;
+    line-height: 4.5rem;
+    color: #545454;
+    margin-bottom: 5.8rem;
+    letter-spacing: 0.06em;
+    &_pets {
+      margin-bottom: 5.9rem;
+      @media only screen and (max-width: 969px) {
+        margin-bottom: 2.9rem;
+      }
+    }
+    @media only screen and (max-width: 400px) {
+      font-size: 2.47rem;
+      line-height: 3.2rem;
+      margin-bottom: 4.2rem;
+    }
+  }
+  &__slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: 450px) {
+      flex-direction: column;
+    }
+
+    &-nav {
+      display: none;
+
+      @media only screen and (max-width: 450px) {
+        display: flex;
+        margin-top: 2rem;
+        & > .btn_round {
+          &:first-child {
+            margin-right: 8rem;
+          }
+        }
+      }
+    }
+
+    &-cards {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    &-card {
+      &:not(:last-child) {
+        margin-right: 9rem;
+      }
+
+      @media only screen and (max-width: 1180px) {
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+
+      @media only screen and (max-width: 1060px) {
+        &:not(:last-child) {
+          margin-right: 0rem;
+        }
+
+        &:first-child {
+          margin-right: 4rem;
+        }
+      }
+
+      @media only screen and (max-width: 744px) {
+        &:first-child {
+          margin-right: 0rem;
+        }
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+  }
+  &__button {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 6.1rem;
+    @media only screen and (max-width: 400px) {
+      margin-top: 4.3rem;
+    }
+  }
+  &_pets {
+    padding: 7.92rem 0 10rem 0;
+    @media only screen and (max-width: 969px) {
+      padding: 7.92rem 0 7.6rem 0;
+    }
+
+    @media only screen and (max-width: 609px) {
+      padding: 4rem 0 4.2rem 0;
+    }
+  }
+  &__cards {
+    &-wrapper {
+      position: relative;
+      max-height: 93rem;
+      overflow: hidden;
+      max-width: 120.2rem;
+    }
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 2s linear;
+  }
+  &__card {
+    margin-bottom: 3.1rem;
+    &:not(:nth-child(4n + 4)) {
+      margin-right: 4rem;
+    }
+
+    @media only screen and (max-width: 1279px) {
+      &:not(:nth-child(4n + 4)) {
+        margin-right: 0;
+      }
+
+      &:not(:nth-child(3n + 3)) {
+        margin-right: 4rem;
+      }
+    }
+
+    @media only screen and (max-width: 969px) {
+      &:not(:nth-child(3n + 3)) {
+        margin-right: 0;
+      }
+
+      &:not(:nth-child(2n)) {
+        margin-right: 4rem;
+      }
+    }
+
+    @media only screen and (max-width: 639px) {
+      &:not(:nth-child(2n)) {
+        margin-right: 2rem;
+      }
+      &:nth-child(5) {
+        display: none;
+      }
+      &:nth-child(6) {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 639px) {
+      &:not(:nth-child(2n)) {
+        margin-right: 1rem;
+      }
+    }
+
+    @media only screen and (max-width: 609px) {
+      &:nth-child(4) {
+        display: none;
+      }
+      &:not(:nth-child(2n)) {
+        margin-right: 0;
+      }
+    }
+  }
+}
