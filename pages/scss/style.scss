@@ -21,6 +21,10 @@
   }
 }
 
+.hidden {
+  overflow: hidden;
+}
+
 @import "_header";
 @import "_not-only";
 @import "_btn";

@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../../slick/slick.css"/>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/normalise.css" />
+
+
+
     <title>Shelter</title>
   </head>
   <body>
     <main class="main">
+
       <div class="wrapper__bg">
+
         <header id="header" class="header">
           <div class="wrapper__content">
             <div class="header__inner">
@@ -22,7 +29,7 @@
 
               <ul class="header__nav ">
                 <li class="header__nav-item">
-                  <a href="#body" class="header__nav-link header__nav-link_active"
+                  <a href="#" class="header__nav-link header__nav-link_active"
                     >About the shelter</a
                   >
                 </li>
@@ -30,10 +37,10 @@
                   <a href="../pets/pets.html" class="header__nav-link">Our pets</a>
                 </li>
                 <li class="header__nav-item">
-                  <a href="#" class="header__nav-link">Help the shelter</a>
+                  <a class="header__nav-link header__nav-link_deactivate">Help the shelter</a>
                 </li>
                 <li class="header__nav-item">
-                  <a href="#" class="header__nav-link">Contacts</a>
+                  <a class="header__nav-link header__nav-link_deactivate">Contacts</a>
                 </li>
               </ul>
             </div>
@@ -41,10 +48,10 @@
         </header>
         
         
+
         <button id="header__button-burger" class="header__button-burger">
           <img src="../../assets/icons/main-burger.svg" alt="burger">
         </button>
-
 
         <!--Header mobile-->
         <div id="header-mobile" class="header-mobile">
@@ -74,12 +81,12 @@
                 >
               </li>
               <li class="header__nav-item header__nav-item_mobile">
-                <a href="#" class="header__nav-link header__nav-link_mobile"
+                <a href="#" class="header__nav-link header__nav-link_mobile header__nav-link_deactivate"
                   >Help the shelter</a
                 >
               </li>
               <li class="header__nav-item header__nav-item_mobile">
-                <a href="#" class="header__nav-link header__nav-link_mobile"
+                <a href="#" class="header__nav-link header__nav-link_mobile header__nav-link_deactivate"
                   >Contacts</a
                 >
               </li>
@@ -137,73 +144,22 @@
           <h3 class="our-friends__title">
             Our friends who <br />are looking for a house
           </h3>
-          <div class="our-friends__slider">
-            <!--Slider Nav-->
-            <button class="btn_round btn_round-prev btn_round-prev-tab"></button>
-
-
-            <!--Slide-->
-            <div class="our-friends__slider-cards">
-              <div id="katrine" class="our-friends__slider-card">
-                <div id="katrine" class="card-pets">
-                  <figure class="card-pets__photo">
-                    <img
-                      src="../../assets/images/katrine.png"
-                      alt="card"
-                    />
-                  </figure>
-                  <p class="card-pets__name">Katrine</p>
-                  <button  class="btn btn_border">Learn more</button>
-                </div>
-              </div>
-              
-
-              <!--Slide-->
-              <div class="our-friends__slider-card">
-                <div id="jennifer" class="card-pets">
-                  <figure class="card-pets__photo">
-                    <img
-                      src="../../assets/images/jennifer.png"
-                      alt="card"
-                    />
-                  </figure>
-                  <p class="card-pets__name">Jennifer</p>
-                  <button  class="btn btn_border">Learn more</button>
-                </div>
-              </div>
-
-
-              <!--Slide-->
-              <div class="our-friends__slider-card">
-                <div id="woody" class="card-pets">
-                  <figure class="card-pets__photo">
-                    <img
-                      src="../../assets/images/woody.png"
-                      alt="card"
-                    />
-                  </figure>
-                  <p class="card-pets__name">Woody</p>
-                  <button  class="btn btn_border" id="open-button">Learn more</button>
-                </div>
-              </div>
-
-            </div>
-
-            <!--Slider Nav-->
-            <button class="btn_round btn_round-next btn_round-next-tab"></button>
-
             
-            <!--Slider Nav Mobile-->
+          <div class="slider__wrapper">
             <div class="our-friends__slider-nav">
-              <button class="btn_round btn_round-prev"></button>
-              <button class="btn_round btn_round-next"></button>
+              <button class="prev btn_round btn_round-prev btn_round-prev-tab"></button>
+              <button class="next btn_round btn_round-next btn_round-next-tab"></button>
             </div>
+            <div class="our-friends__slider"> </div>
           </div>
+
+
           <div class="our-friends__button">
             <a href="../pets/pets.html" class="btn btn_bg btn_bg-our-friends">Get to know the rest</a>
           </div>
         </div>
       </section>
+
 
       <!--Help-->
       <section class="help">
@@ -345,6 +301,11 @@
     </main>
 
     <!--Scripts-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../slick/slick.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
+
+

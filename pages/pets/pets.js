@@ -23,14 +23,16 @@ buttonBurgerPets.addEventListener("click", function () {
   buttonBurgerPets.classList.toggle("pets-header__button-burger_open");
   headerPets.classList.toggle("pets-header_hidden");
   headerMobilePets.classList.toggle("pets-header-mobile_active");
+  document.body.classList.toggle("hidden");
   document.body.onclick = function (e) {
     if (
       e.target.classList[1] === "pets-header-mobile_active" ||
       e.target.classList[2] === "header__nav-link_active"
     ) {
-      headerPets.classList.toggle("pets-header_hidden");
-      headerMobilePets.classList.toggle("pets-header-mobile_active");
-      buttonBurgerPets.classList.toggle("pets-header__button-burger_open");
+      document.body.classList.remove("hidden");
+      headerPets.classList.remove("pets-header_hidden");
+      headerMobilePets.classList.remove("pets-header-mobile_active");
+      buttonBurgerPets.classList.remove("pets-header__button-burger_open");
     }
   };
 });
@@ -58,12 +60,14 @@ fetch("../../assets/pets.json")
       if (e.target.closest(".card-pets") !== null) {
         generateModal(e.target.closest(".card-pets").id);
         modal.classList.toggle("modal__learn-more_open");
+        document.body.classList.toggle("hidden");
       } else {
         if (
           e.target.classList[1] === "modal__learn-more_open" ||
           e.target.classList[0] === "modal__button-close"
         ) {
           modal.classList.remove("modal__learn-more_open");
+          document.body.classList.remove("hidden");
         }
       }
     });
@@ -96,13 +100,188 @@ fetch("../../assets/pets.json")
       return tempArr;
     })();
 
-    fullPetsList = sort863(fullPetsList);
+    // Pagination
+    let countPage = document.querySelector("#countPage");
+    let numPage = +countPage.innerHTML;
+    const allCardsPets = 48;
+    let start;
+    let end;
+    let widthWindow;
+    let notesOnPage;
+    let howNotesOnPage;
+    let fullPetsListNull;
+    let nextPage = document.querySelector("#nextPage");
+    let prevPage = document.querySelector("#prevPage");
+    let doublePrevPage = document.querySelector("#doublePrevPage");
+    let doubleNextPage = document.querySelector("#doubleNextPage");
 
-    createPets(fullPetsList);
+    renderResize();
+    window.addEventListener("resize", renderResize);
 
-    /*document.querySelector("#currentPage").innerText = (
-      currentPage + 1
-    ).toString();*/
+    function renderResize() {
+      fullPetsList = sort863(fullPetsList);
+      widthWindow = document.body.clientWidth;
+      notesOnPage =
+        widthWindow > 768
+          ? 8
+          : widthWindow <= 768 && widthWindow >= 600
+          ? 6
+          : 3;
+      howNotesOnPage = allCardsPets / notesOnPage;
+
+      if (numPage === 1) {
+        fullPetsListNull = fullPetsList.slice(start, end);
+        createPets(fullPetsListNull);
+      }
+
+      if (widthWindow > 768) {
+        if (+countPage.innerHTML > 6) {
+          countPage.innerHTML = "1";
+          numPage = 1;
+          nextPage.classList.remove("btn_round-pagination-next-inactive");
+          doubleNextPage.classList.remove(
+            "btn_round-pagination-doublenext-inactive"
+          );
+
+          prevPage.classList.add("btn_round-pagination-prev-inactive");
+          doublePrevPage.classList.add(
+            "btn_round-pagination-doubleprev-inactive"
+          );
+        }
+      } else if (widthWindow <= 768 && widthWindow >= 600) {
+        if (+countPage.innerHTML > 8) {
+          countPage.innerHTML = "1";
+          numPage = 1;
+          nextPage.classList.remove("btn_round-pagination-next-inactive");
+          doubleNextPage.classList.remove(
+            "btn_round-pagination-doublenext-inactive"
+          );
+
+          prevPage.classList.add("btn_round-pagination-prev-inactive");
+          doublePrevPage.classList.add(
+            "btn_round-pagination-doubleprev-inactive"
+          );
+        }
+
+        if (+countPage.innerHTML < 8 && +countPage.innerHTML !== 1) {
+          nextPage.classList.remove("btn_round-pagination-next-inactive");
+          doubleNextPage.classList.remove(
+            "btn_round-pagination-doublenext-inactive"
+          );
+
+          prevPage.classList.remove("btn_round-pagination-prev-inactive");
+          doublePrevPage.classList.remove(
+            "btn_round-pagination-doubleprev-inactive"
+          );
+        }
+      } else if (widthWindow < 600) {
+        if (+countPage.innerHTML < 16 && +countPage.innerHTML !== 1) {
+          nextPage.classList.remove("btn_round-pagination-next-inactive");
+          doubleNextPage.classList.remove(
+            "btn_round-pagination-doublenext-inactive"
+          );
+
+          prevPage.classList.remove("btn_round-pagination-prev-inactive");
+          doublePrevPage.classList.remove(
+            "btn_round-pagination-doubleprev-inactive"
+          );
+        }
+      }
+
+      start = (numPage - 1) * notesOnPage;
+      end = start + notesOnPage;
+      document.querySelector("#our-friends__cards").innerHTML = " ";
+      fullPetsListNull = fullPetsList.slice(start, end);
+      createPets(fullPetsListNull);
+    }
+
+    nextPage.addEventListener("click", () => {
+      if (numPage <= howNotesOnPage - 1) {
+        prevPage.classList.remove("btn_round-pagination-prev-inactive");
+        doublePrevPage.classList.remove(
+          "btn_round-pagination-doubleprev-inactive"
+        );
+
+        countPage.innerHTML = String(+countPage.innerHTML + 1);
+        numPage++;
+        start = (numPage - 1) * notesOnPage;
+        end = start + notesOnPage;
+        document.querySelector("#our-friends__cards").innerHTML = " ";
+        fullPetsListNull = fullPetsList.slice(start, end);
+        createPets(fullPetsListNull);
+      }
+
+      if (numPage >= howNotesOnPage) {
+        nextPage.classList.add("btn_round-pagination-next-inactive");
+        doubleNextPage.classList.add(
+          "btn_round-pagination-doublenext-inactive"
+        );
+      }
+    });
+
+    doubleNextPage.addEventListener("click", () => {
+      if (howNotesOnPage === 6) {
+        numPage = howNotesOnPage;
+      } else if (howNotesOnPage === 8) {
+        numPage = howNotesOnPage;
+      } else if (howNotesOnPage === 16) {
+        numPage = howNotesOnPage;
+      }
+      countPage.innerHTML = String(numPage);
+      start = (numPage - 1) * notesOnPage;
+      end = start + notesOnPage;
+      document.querySelector("#our-friends__cards").innerHTML = " ";
+      fullPetsListNull = fullPetsList.slice(start, end);
+      createPets(fullPetsListNull);
+
+      // class
+      doublePrevPage.classList.remove(
+        "btn_round-pagination-doubleprev-inactive"
+      );
+      prevPage.classList.remove("btn_round-pagination-prev-inactive");
+      nextPage.classList.add("btn_round-pagination-next-inactive");
+      doubleNextPage.classList.add("btn_round-pagination-doublenext-inactive");
+    });
+
+    prevPage.addEventListener("click", () => {
+      if (numPage > 1) {
+        countPage.innerHTML = String(+countPage.innerHTML - 1);
+        numPage--;
+        start = (numPage - 1) * notesOnPage;
+        end = start + notesOnPage;
+        document.querySelector("#our-friends__cards").innerHTML = " ";
+        fullPetsListNull = fullPetsList.slice(start, end);
+        createPets(fullPetsListNull);
+        nextPage.classList.remove("btn_round-pagination-next-inactive");
+        doubleNextPage.classList.remove(
+          "btn_round-pagination-doublenext-inactive"
+        );
+      }
+
+      if (numPage === 1) {
+        prevPage.classList.add("btn_round-pagination-prev-inactive");
+        doublePrevPage.classList.add(
+          "btn_round-pagination-doubleprev-inactive"
+        );
+      }
+    });
+
+    doublePrevPage.addEventListener("click", () => {
+      numPage = 1;
+      countPage.innerHTML = String(numPage);
+      start = (numPage - 1) * notesOnPage;
+      end = start + notesOnPage;
+      document.querySelector("#our-friends__cards").innerHTML = " ";
+      fullPetsListNull = fullPetsList.slice(start, end);
+      createPets(fullPetsListNull);
+
+      prevPage.classList.add("btn_round-pagination-prev-inactive");
+      doublePrevPage.classList.add("btn_round-pagination-doubleprev-inactive");
+      nextPage.classList.remove("btn_round-pagination-next-inactive");
+      doubleNextPage.classList.remove(
+        "btn_round-pagination-doublenext-inactive"
+      );
+    });
   });
 
 const createPets = (petsList) => {
@@ -180,14 +359,3 @@ const sort6recursively = (list) => {
 
   return list;
 };
-
-let currentPage = 0;
-document.querySelector("#nextPage").addEventListener("click", (e) => {
-  document.querySelector(
-    "#our-friends__cards"
-  ).style.top = `calc(-435 * ${currentPage}px)`;
-  currentPage++;
-  console.log(document.querySelector("#our-friends__cards").offsetHeight);
-});
-
-console.log(document.querySelector("#our-friends__cards").offsetHeight);

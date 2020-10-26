@@ -57,20 +57,23 @@
 
   &__button-burger {
     display: none;
+
     @media only screen and (max-width: 767px) {
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       display: block;
       transition: all 0.5s linear;
       position: absolute;
+
       right: 0;
       background: transparent;
       top: 4.8rem;
       right: 5.3rem;
     }
+
     &_open {
       position: fixed;
       transform: rotate(-90deg);
-      z-index: 1000;
+      z-index: 50000;
     }
   }
 
@@ -193,15 +196,24 @@
           }
         }
       }
+
+      &_deactivate {
+        cursor: default;
+        color: #757474;
+        &:hover {
+          color: #757474;
+          &:after {
+            width: 0;
+          }
+        }
+      }
     }
   }
 }
 
 .pets-header {
   background-image: none;
-  min-height: 0;
-  height: auto;
-
+  background-color: #ffffff;
   &__inner {
     padding: 3.1rem 0;
   }
@@ -222,4 +234,10 @@
       }
     }
   }
+}
+
+.wrapper__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }

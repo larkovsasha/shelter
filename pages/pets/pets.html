@@ -7,97 +7,103 @@
     <link rel="stylesheet" href="../css/normalise.css" />
     <title>Pets</title>
   </head>
-  <body>
+  <body >
     <main class="main">
       <!--Header-->
-      <header id="pets-header" class="pets-header">
-        <div class="wrapper__content">
-          <div class="pets-header__inner">
-            <a class="header__logo-link" href="../main/index.html">
-              <div class="header__logo">
-                <h1 class="header__logo-title header__logo-title_pets">
-                  Cozy House
-                </h1>
-                <h4 class="header__logo-subtitle header__logo-subtitle_pets">
-                  Shelter for pets in Boston
-                </h4>
-              </div></a>
-            
-            <ul class="header__nav">
-              <li class="header__nav-item">
-                <a href="../main/index.html" class="header__nav-link header__nav-link_pets"
+
+      <div class="wrapper__header">
+        <header id="pets-header" class="pets-header">
+          <div class="wrapper__content">
+            <div class="pets-header__inner">
+              <a class="header__logo-link" href="../main/index.html">
+                <div class="header__logo">
+                  <h1 class="header__logo-title header__logo-title_pets">
+                    Cozy House
+                  </h1>
+                  <h4 class="header__logo-subtitle header__logo-subtitle_pets">
+                    Shelter for pets in Boston
+                  </h4>
+                </div></a>
+              
+              <ul class="header__nav">
+                <li class="header__nav-item">
+                  <a href="../main/index.html" class="header__nav-link header__nav-link_pets"
+                    >About the shelter</a
+                  >
+                </li>
+                <li class="header__nav-item">
+                  <a
+                    href="../pets/pets.html"
+                    class="header__nav-link header__nav-link_pets header__nav-link_active"
+                    >Our pets</a
+                  >
+                </li>
+                <li class="header__nav-item">
+                  <a class="header__nav-link header__nav-link_pets header__nav-link_deactivate"
+                    >Help the shelter</a
+                  >
+                </li>
+                <li class="header__nav-item">
+                  <a class="header__nav-link header__nav-link_pets header__nav-link_deactivate"
+                    >Contacts</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+  
+  
+        <button id="pets-header__button-burger" class="pets-header__button-burger">
+          <img src="../../assets/icons/pets-burger.svg" alt="burger">
+        </button>
+  
+        <!--Header mobile-->
+        <div id="pets-header-mobile" class="pets-header-mobile ">
+          <div class="pets-header-mobile__inner">
+            <div class="pets-header-mobile__top">
+              <a class="header__logo-link" href="../main/index.html">
+                <div class="header__logo">
+                  <h1 class="header__logo-title header__logo-title_pets">
+                    Cozy House
+                  </h1>
+                  <h4 class="header__logo-subtitle header__logo-subtitle_pets">
+                    Shelter for pets in Boston
+                  </h4>
+                </div></a>
+            </div>
+        
+            <ul class="pets-header-mobile__nav">
+              <li class="header__nav-item pets-header__nav-item_mobile">
+                <a
+                  href="../main/index.html"
+                  class="header__nav-link  pets-header__nav-link_mobile"
                   >About the shelter</a
                 >
               </li>
-              <li class="header__nav-item">
+              <li class="header__nav-item pets-header__nav-item_mobile">
                 <a
-                  href="../pets/pets.html"
-                  class="header__nav-link header__nav-link_pets header__nav-link_active"
+                  href="#"
+                  class="header__nav-link pets-header__nav-link_mobile header__nav-link_active"
                   >Our pets</a
                 >
               </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link header__nav-link_pets"
+              <li class="header__nav-item pets-header__nav-item_mobile">
+                <a class="header__nav-link pets-header__nav-link_mobile header__nav-link_deactivate"
                   >Help the shelter</a
                 >
               </li>
-              <li class="header__nav-item">
-                <a href="#" class="header__nav-link header__nav-link_pets"
+              <li class="header__nav-item header__nav-item_mobile">
+                <a class="header__nav-link pets-header__nav-link_mobile header__nav-link_deactivate"
                   >Contacts</a
                 >
               </li>
             </ul>
           </div>
-        </div>
-      </header>
-
-      <button id="pets-header__button-burger" class="pets-header__button-burger">
-        <img src="../../assets/icons/pets-burger.svg" alt="burger">
-      </button>
-
-      <!--Header mobile-->
-      <div id="pets-header-mobile" class="pets-header-mobile ">
-        <div class="pets-header-mobile__inner">
-          <div class="pets-header-mobile__top">
-            <a class="header__logo-link" href="../main/index.html">
-              <div class="header__logo">
-                <h1 class="header__logo-title header__logo-title_pets">
-                  Cozy House
-                </h1>
-                <h4 class="header__logo-subtitle header__logo-subtitle_pets">
-                  Shelter for pets in Boston
-                </h4>
-              </div></a>
-          </div>
-      
-          <ul class="pets-header-mobile__nav">
-            <li class="header__nav-item pets-header__nav-item_mobile">
-              <a
-                href="../main/index.html"
-                class="header__nav-link  pets-header__nav-link_mobile"
-                >About the shelter</a
-              >
-            </li>
-            <li class="header__nav-item pets-header__nav-item_mobile">
-              <a
-                href="#"
-                class="header__nav-link pets-header__nav-link_mobile header__nav-link_active"
-                >Our pets</a
-              >
-            </li>
-            <li class="header__nav-item pets-header__nav-item_mobile">
-              <a href="#" class="header__nav-link pets-header__nav-link_mobile"
-                >Help the shelter</a
-              >
-            </li>
-            <li class="header__nav-item header__nav-item_mobile">
-              <a href="#" class="header__nav-link pets-header__nav-link_mobile"
-                >Contacts</a
-              >
-            </li>
-          </ul>
+  
         </div>
       </div>
+
 
 
       <!--Our Friends-->
@@ -108,16 +114,15 @@
             Our friends who <br />are looking for a house
           </h3>
 
-          <div class="our-friends__cards-wrapper">
-            <div id="our-friends__cards" class="our-friends__cards"></div>
-          </div>
+          <div id="our-friends__cards" class="our-friends__cards animate"></div>
+
 
           <div class="pagination">
-            <button class="btn_round btn_round-pagination-doubleprev btn_round-pagination-doubleprev-inactive"></button>
-            <button class="btn_round btn_round-pagination-prev btn_round-pagination-prev-inactive"></button>
-            <button class="btn_round btn_round-pagination-count">1</button>
+            <button id="doublePrevPage" class="btn_round btn_round-pagination-doubleprev btn_round-pagination-doubleprev-inactive"></button>
+            <button id="prevPage" class="btn_round btn_round-pagination-prev btn_round-pagination-prev-inactive"></button>
+            <button id="countPage" class="btn_round btn_round-pagination-count">1</button>
             <button id="nextPage" class="btn_round btn_round-pagination-next "></button>
-            <button class="btn_round btn_round-pagination-doublenext "></button>
+            <button id="doubleNextPage" class="btn_round btn_round-pagination-doublenext"></button>
           </div>
 
       </section>

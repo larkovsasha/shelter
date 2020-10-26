@@ -33,6 +33,7 @@
   }
 
   &_border {
+    display: block;
     background: transparent;
     border: 2px solid #f1cdb3;
     transition: all 0.2s linear;
@@ -45,9 +46,8 @@
 
   &_round {
     border-radius: 50%;
-    width: 5.2rem;
-    height: 5.2rem;
-
+    min-width: 5.2rem;
+    min-height: 5.2rem;
     background: transparent;
     border: 2px solid #f1cdb3;
     position: relative;
